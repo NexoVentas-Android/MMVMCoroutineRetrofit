@@ -1,4 +1,4 @@
-package com.unityfoods.mmvmcoroutineretrofit
+package com.unityfoods.mmvmcoroutineretrofit.utils
 
 sealed interface UiState<out T> {
 

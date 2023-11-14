@@ -1,4 +1,4 @@
-package com.unityfoods.mmvmcoroutineretrofit
+package com.unityfoods.mmvmcoroutineretrofit.retrofit
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

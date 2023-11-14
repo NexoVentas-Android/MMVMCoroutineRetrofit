@@ -1,4 +1,4 @@
-package com.unityfoods.mmvmcoroutineretrofit
+package com.unityfoods.mmvmcoroutineretrofit.ui
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,17 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.unityfoods.mmvmcoroutineretrofit.R
+import com.unityfoods.mmvmcoroutineretrofit.viewmodel.SingleNetworkCallViewModel
+import com.unityfoods.mmvmcoroutineretrofit.utils.UiState
+import com.unityfoods.mmvmcoroutineretrofit.viewmodel.ViewModelFactory
+import com.unityfoods.mmvmcoroutineretrofit.api_helper.ApiHelperImpl
+import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
+import com.unityfoods.mmvmcoroutineretrofit.adapter.ApiUserAdapter
 import com.unityfoods.mmvmcoroutineretrofit.databinding.ActivityMainBinding
+import com.unityfoods.mmvmcoroutineretrofit.retrofit.RetrofitBuilder
+import com.unityfoods.mmvmcoroutineretrofit.room.DatabaseBuilder
+import com.unityfoods.mmvmcoroutineretrofit.room.DatabaseHelperImpl
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: SingleNetworkCallViewModel

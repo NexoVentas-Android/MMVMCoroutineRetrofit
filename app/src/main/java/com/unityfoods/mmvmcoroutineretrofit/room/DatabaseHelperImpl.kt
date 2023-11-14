@@ -1,4 +1,6 @@
-package com.unityfoods.mmvmcoroutineretrofit
+package com.unityfoods.mmvmcoroutineretrofit.room
+
+import com.unityfoods.mmvmcoroutineretrofit.model.User
 
 
 class DatabaseHelperImpl(private val appDatabase: AppDatabase) : DatabaseHelper {

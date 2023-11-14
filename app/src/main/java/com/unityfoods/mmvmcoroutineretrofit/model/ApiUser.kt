@@ -1,4 +1,4 @@
-package com.unityfoods.mmvmcoroutineretrofit
+package com.unityfoods.mmvmcoroutineretrofit.model
 
 import com.google.gson.annotations.SerializedName
 

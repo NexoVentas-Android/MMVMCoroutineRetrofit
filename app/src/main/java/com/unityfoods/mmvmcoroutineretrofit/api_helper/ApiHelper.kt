@@ -1,4 +1,6 @@
-package com.unityfoods.mmvmcoroutineretrofit
+package com.unityfoods.mmvmcoroutineretrofit.api_helper
+
+import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
 
 
 interface ApiHelper {
