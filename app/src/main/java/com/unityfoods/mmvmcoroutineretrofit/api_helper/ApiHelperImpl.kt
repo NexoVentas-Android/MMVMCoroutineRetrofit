@@ -2,12 +2,12 @@ package com.unityfoods.mmvmcoroutineretrofit.api_helper
 
 import com.unityfoods.mmvmcoroutineretrofit.retrofit.ApiService
 
-class ApiHelperImpl(private val apiService: ApiService) : ApiHelper {
+class ApiHelperImpl(private val apiService: ApiService) {
 
-    override suspend fun getUsers() = apiService.getUsers()
+    suspend fun getUsers() = apiService.getUsers()
 
-    override suspend fun getMoreUsers() = apiService.getMoreUsers()
+    suspend fun getMoreUsers() = apiService.getMoreUsers()
 
-    override suspend fun getUsersWithError() = apiService.getUsersWithError()
+    suspend fun getUsersWithError() = apiService.getUsersWithError()
 
 }
