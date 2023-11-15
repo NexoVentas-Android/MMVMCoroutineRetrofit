@@ -18,3 +18,11 @@ data class ApiUser(
     @SerializedName("avatar")
     val avatar: String = ""
 )
+
+//@Entity
+//data class User(
+//    @PrimaryKey val id: Int,
+//    @ColumnInfo(name = "name") val name: String?,
+//    @ColumnInfo(name = "email") val email: String?,
+//    @ColumnInfo(name = "avatar") val avatar: String?
+//)
