@@ -10,8 +10,8 @@ class ViewModelFactory(private val apiHelper: MainClassRepository, private val d
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SingleNetworkCallViewModel::class.java)) {
-            return SingleNetworkCallViewModel(apiHelper, dbHelper) as T
+        if (modelClass.isAssignableFrom(MainActivityViewModel::class.java)) {
+            return MainActivityViewModel(apiHelper, dbHelper) as T
         }
         throw IllegalArgumentException("Unknown class name")
     }

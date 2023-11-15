@@ -10,8 +10,8 @@ import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
 import com.unityfoods.mmvmcoroutineretrofit.room.DatabaseHelper
 import kotlinx.coroutines.launch
 
-class SingleNetworkCallViewModel(
-    private val apiHelper: MainClassRepository,
+class MainActivityViewModel(
+    private val mainClassRepository: MainClassRepository,
     private val dbHelper: DatabaseHelper
 ) : ViewModel() {
 
@@ -25,7 +25,8 @@ class SingleNetworkCallViewModel(
         viewModelScope.launch {
             uiState.postValue(UiState.Loading)
             try {
-                val usersFromApi = apiHelper.getUsers()
+                val usersFromApi = mainClassRepository.getUsers()
+                dbHelper.insertAllApiUser(usersFromApi)
                 uiState.postValue(UiState.Success(usersFromApi))
             } catch (e: Exception) {
                 uiState.postValue(UiState.Error(e.toString()))

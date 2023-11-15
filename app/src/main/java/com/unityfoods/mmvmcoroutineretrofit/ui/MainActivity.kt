@@ -1,6 +1,7 @@
 package com.unityfoods.mmvmcoroutineretrofit.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -9,20 +10,20 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.unityfoods.mmvmcoroutineretrofit.R
-import com.unityfoods.mmvmcoroutineretrofit.viewmodel.SingleNetworkCallViewModel
+import com.unityfoods.mmvmcoroutineretrofit.viewmodel.MainActivityViewModel
 import com.unityfoods.mmvmcoroutineretrofit.utils.UiState
 import com.unityfoods.mmvmcoroutineretrofit.viewmodel.ViewModelFactory
 import com.unityfoods.mmvmcoroutineretrofit.repository.MainClassRepository
 import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
-import com.unityfoods.mmvmcoroutineretrofit.adapter.ApiUserAdapter
+import com.unityfoods.mmvmcoroutineretrofit.adapter.Adapter
 import com.unityfoods.mmvmcoroutineretrofit.databinding.ActivityMainBinding
 import com.unityfoods.mmvmcoroutineretrofit.retrofit.RetrofitBuilder
 import com.unityfoods.mmvmcoroutineretrofit.room.DatabaseBuilder
 import com.unityfoods.mmvmcoroutineretrofit.room.DatabaseHelperImpl
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: SingleNetworkCallViewModel
-    private lateinit var adapter: ApiUserAdapter
+    private lateinit var viewModel: MainActivityViewModel
+    private lateinit var adapter: Adapter
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupUI() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter =
-            ApiUserAdapter(
+            Adapter(
                 arrayListOf()
             )
         binding.recyclerView.addItemDecoration(
@@ -64,6 +65,8 @@ class MainActivity : AppCompatActivity() {
                     //Handle Error
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
+                    Log.d("++--++","Error : ${it.message}")
+                    Log.d("++--++","Complete Error : ${it}")
                 }
             }
         }
@@ -81,6 +84,6 @@ class MainActivity : AppCompatActivity() {
                 MainClassRepository(RetrofitBuilder.apiService),
                 DatabaseHelperImpl(DatabaseBuilder.getInstance(applicationContext))
             )
-        )[SingleNetworkCallViewModel::class.java]
+        )[MainActivityViewModel::class.java]
     }
 }

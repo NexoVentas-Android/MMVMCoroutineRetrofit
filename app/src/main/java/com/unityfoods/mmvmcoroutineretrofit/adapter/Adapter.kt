@@ -11,9 +11,9 @@ import com.unityfoods.mmvmcoroutineretrofit.R
 import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
 
 
-class ApiUserAdapter(
+class Adapter(
     private val users: ArrayList<ApiUser>
-) : RecyclerView.Adapter<ApiUserAdapter.DataViewHolder>() {
+) : RecyclerView.Adapter<Adapter.DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DataViewHolder(

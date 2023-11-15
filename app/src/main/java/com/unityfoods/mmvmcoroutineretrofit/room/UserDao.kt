@@ -1,9 +1,7 @@
 package com.unityfoods.mmvmcoroutineretrofit.room
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
+import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
 import com.unityfoods.mmvmcoroutineretrofit.model.User
 
 @Dao
@@ -17,5 +15,14 @@ interface UserDao {
 
     @Delete
     suspend fun delete(user: User)
+
+    @Query("SELECT * FROM ApiUser")
+    suspend fun getAllApiUser(): List<ApiUser>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAllApiUser(users: ArrayList<ApiUser>)
+
+    @Delete
+    suspend fun deleteApiUser(user: ApiUser)
 
 }
