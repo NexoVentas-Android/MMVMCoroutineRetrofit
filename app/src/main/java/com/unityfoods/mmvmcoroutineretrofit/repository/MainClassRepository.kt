@@ -1,8 +1,8 @@
-package com.unityfoods.mmvmcoroutineretrofit.api_helper
+package com.unityfoods.mmvmcoroutineretrofit.repository
 
 import com.unityfoods.mmvmcoroutineretrofit.retrofit.ApiService
 
-class ApiHelperImpl(private val apiService: ApiService) {
+class MainClassRepository(private val apiService: ApiService) {
 
     suspend fun getUsers() = apiService.getUsers()
 

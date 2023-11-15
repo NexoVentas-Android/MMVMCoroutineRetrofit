@@ -12,7 +12,7 @@ import com.unityfoods.mmvmcoroutineretrofit.R
 import com.unityfoods.mmvmcoroutineretrofit.viewmodel.SingleNetworkCallViewModel
 import com.unityfoods.mmvmcoroutineretrofit.utils.UiState
 import com.unityfoods.mmvmcoroutineretrofit.viewmodel.ViewModelFactory
-import com.unityfoods.mmvmcoroutineretrofit.api_helper.ApiHelperImpl
+import com.unityfoods.mmvmcoroutineretrofit.repository.MainClassRepository
 import com.unityfoods.mmvmcoroutineretrofit.model.ApiUser
 import com.unityfoods.mmvmcoroutineretrofit.adapter.ApiUserAdapter
 import com.unityfoods.mmvmcoroutineretrofit.databinding.ActivityMainBinding
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(
             this,
             ViewModelFactory(
-                ApiHelperImpl(RetrofitBuilder.apiService),
+                MainClassRepository(RetrofitBuilder.apiService),
                 DatabaseHelperImpl(DatabaseBuilder.getInstance(applicationContext))
             )
         )[SingleNetworkCallViewModel::class.java]
